@@ -6,8 +6,22 @@ echo 'alias refresh="cd $HOME/bash_scripts/;bash refresh.sh"' >>~/.profile
 source ~/.profile
 go get -u github.com/gobuffalo/packr/...
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install build-essential
-sudo apt-get install -y nodejs
+VAR=1;
+while (( VAR )); do
+    sudo apt-get install build-essential
+    if [ $? -eq 0 ]; then
+    echo OK
+    VAR=0
+else
+    echo FAIL
+VAR=1;
+while (( VAR )); do
+    sudo apt-get install -y nodejs
+    if [ $? -eq 0 ]; then
+    echo OK
+    VAR=0
+else
+    echo FAIL
 cd
 go get github.com/Modulos/easeml
 cd $GOPATH/src/github.com/;rm -rf ds3lab;mv Modulos/ ds3lab;
