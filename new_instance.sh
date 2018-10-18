@@ -10,18 +10,22 @@ VAR=1;
 while (( VAR )); do
     sudo apt-get install build-essential
     if [ $? -eq 0 ]; then
-    echo OK
-    VAR=0
-else
-    echo FAIL
+        echo OK
+        VAR=0
+    else
+        echo FAIL
+    fi
+done
 VAR=1;
 while (( VAR )); do
     sudo apt-get install -y nodejs
     if [ $? -eq 0 ]; then
-    echo OK
-    VAR=0
-else
-    echo FAIL
+        echo OK
+        VAR=0
+    else
+        echo FAIL
+    fi
+done
 cd
 go get github.com/Modulos/easeml
 cd $GOPATH/src/github.com/;rm -rf ds3lab;mv Modulos/ ds3lab;
